@@ -21,11 +21,11 @@ if(!empty($_POST['name'])) {
   $name = $_POST['name'];
   
   if(ctype_alpha(str_replace(" ", "", $name)) === false) {
-    $errors[] = "Name should only contain letters and spaces";
+    $errors['name'] = "Name should only contain letters and spaces";
   }
   
 } else {
-  $errors[] = "Name is a required field";
+  $errors['name'] = "Name is a required field";
 }
 
 //Email - should be a valid email format
@@ -33,10 +33,10 @@ if(!empty($_POST['name'])) {
 if(!empty($_POST['email'])) {
   $email = $_POST['email'];
   if(filter_var($email, FILTER_VALIDATE_EMAIL) !== $email) {
-    $errors[] = "Email is not valid";
+    $errors['email'] = "Email is not valid";
   }
 } else {
-  $errors[] = "Email is a required field";
+  $errors['email'] = "Email is a required field";
 }
 
 //Phone number - should be a valid UK phone number format
@@ -44,7 +44,7 @@ if(!empty($_POST['email'])) {
 if(!empty($_POST['phoneNumber'])) {
   $phoneNumber = $_POST['phoneNumber'];
   if(!preg_match("/^(?:\+44|0)\\d{10}$/", $phoneNumber)) {
-    $errors[] = "Phone number should be a valid UK number";
+    $errors['phoneNumber'] = "Phone number should be a valid UK number";
   }
 }
 
@@ -59,7 +59,7 @@ if(!empty($_POST['dateOfBirth'])) {
 if(!empty($_POST['gender'])) {
   $gender = $_POST['gender'];
 } else {
-  $errors[] = "Gender is a required field";
+  $errors['gender'] = "Gender is a required field";
 }
 
 //Country - should not be empty
@@ -70,11 +70,11 @@ if(!empty($_POST['country'])) {
   $allowedCountries = ["Armenia", "Portugal", "Ukraine","United Kingdom", "United States of America"];
 
   if(!in_array($country, $allowedCountries)) {
-    $errors[] = "Country is not allowed";
+    $errors['country'] = "Country is not allowed";
   }
   
 }else {
-  $errors[] = "You must select a country from the list";
+  $errors['country'] = "You must select a country from the list";
 }
 
 //Mesage - no validation 
