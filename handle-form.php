@@ -87,6 +87,7 @@ if ($errors) {
 
   $_SESSION['status'] = 'error';
   $_SESSION['errors'] = $errors;
+  $_SESSION['data'] = $_POST; // Save the submitted data to repopulate the form
     
   header('Location: index.php?result=validation_error');
   exit();
@@ -134,7 +135,8 @@ if ($errors) {
 
     // Set session status and data
     $_SESSION['status'] = 'success';
-    $_SESSION['data'] = $data;
+    // $_SESSION['data'] = $data;
+    $_SESSION['data'] = $_POST; // Save the submitted data for display on success page
 
     // Redirect to success page
     header('Location: success-page.php');

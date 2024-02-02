@@ -84,6 +84,10 @@ font-style: italic;
 border: 2px solid red;
 }
 
+table {
+  margin-bottom: 20px;
+}
+
 th {
 width: 180px;
 height: 40px;
@@ -122,4 +126,8 @@ padding: 10px 0;
 
 a {
 text-decoration: none;
+}
+
+button.new-form-btn {
+  margin-top: 20px;
 }
