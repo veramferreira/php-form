@@ -28,7 +28,7 @@ include 'functions.php';
       
       <form action="handle-form.php" method="post">
         <div class="field-group">         
-          <label for="name" class="field-title">Full name:</label>
+          <label for="name" class="field-title">Full name</label>
           <input type="text" name="name" id="name" placeholder="Enter your name..."
             <?php if (isset($errors['name'])) : ?>
                 class="error-input"
@@ -39,7 +39,7 @@ include 'functions.php';
         </div>
 
         <div class="field-group">
-          <label for="email" class="field-title">Email:</label>
+          <label for="email" class="field-title">Email</label>
           <input type="email" name="email" id="email" placeholder="Enter your email..."
             <?php if (isset($errors['email'])) : ?>
                 class="error-input"
@@ -50,7 +50,7 @@ include 'functions.php';
         </div>
 
         <div class="field-group">
-          <label for="phoneNumber" class="field-title">Phone number:</label>
+          <label for="phoneNumber" class="field-title">Phone number <span class="optional">(optional)</span></label>
           <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number..."
             <?php if (isset($errors['phoneNumber'])) : ?>
                 class="error-input"
@@ -61,12 +61,12 @@ include 'functions.php';
         </div>
 
         <div class="field-group">
-          <label for="dateOfBirth" class="field-title">Date of birth:</label>
+          <label for="dateOfBirth" class="field-title">Date of birth <span class="optional">(optional)</span></label>
           <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Enter your name..."/>
         </div>
 
         <div class="field-group">
-          <p class="field-title">What is your gender:</p>
+          <p class="field-title">What is your gender?</p>
     
             <input type="radio" id="male" name="gender" value="Male"/>
             <label for="male">Male</label>
@@ -102,7 +102,7 @@ include 'functions.php';
         </div>
 
         <div class="field-group">
-          <label for="message" class="field-title">What would you like to tell us?</label>
+          <label for="message" class="field-title">What would you like to tell us? <span class="optional">(optional)</span></label>
           <textarea name="message" id="message" placeholder="Write your message here..."></textarea>
         </div>
 
