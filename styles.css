@@ -1,23 +1,11 @@
-html,
-ul,
-p,
-div,
-span,
-img,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+html, ul, p, div, span, img, form, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
 
 body {
-  padding: 10px;
-  font-family: "Roboto", sans-serif;
+padding: 10px;
+font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -26,8 +14,8 @@ body {
 }
 
 h1 {
-  padding: 0.8em 0;
-  margin-bottom: 0.8em;
+  padding: .8em 0;
+  margin-bottom: .8em;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -36,105 +24,110 @@ input[type="email"],
 input[type="tel"],
 select,
 textarea {
-  display: block;
-  width: 100%;
-  padding: 0.5em;
-  margin: 5px;
+display: block;
+width: 100%;
+padding: .5em;
+margin: 5px;
 }
 
-button[type="submit"],
-button {
-  display: block;
-  padding: 1em 3em;
-  background: rgb(110, 105, 245);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
+button[type="submit"], button {
+display: block;
+padding: 1em 3em;
+background: rgb(110, 105, 245);
+border: none;
+border-radius: 8px;
+color: white;
+cursor: pointer;
 }
 
 .field-title {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+display: block;
+font-weight: bold;
+margin-bottom: .5em;
 }
 textarea {
-  min-height: 10vh;
+min-height: 10vh;
 }
 .field-group {
-  display: block;
-  margin-bottom: 1.25em;
+display: block;
+margin-bottom: 1.25em;
 }
 
 .main-error {
-  background: rgba(247, 112, 94, 0.2);
-  border: 1px solid rgba(247, 112, 94, 0.5);
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  color: red;
-  padding: 10px;
-  text-align: center;
-  border-radius: 3px;
+background:rgba(247, 112, 94, .2);
+border: 1px solid rgba(247, 112, 94, .5);
+font-weight: bold;
+text-transform: uppercase;
+margin-bottom: 30px;
+color: red;
+padding: 10px;
+text-align: center;
+border-radius: 3px;
 }
 
 p.errors {
-  padding: 3px 5px;
-  width: 100%;
-  margin: 5px;
-  color: red;
-  font-style: italic;
+padding: 3px 5px;
+width: 100%;
+margin: 5px;
+color: red;
+font-style: italic;
+}
+
+.error-input {
+border: 2px solid red;
 }
 
 .success {
-  padding: 1em;
-  margin-bottom: 1.25em;
-  background: rgba(143, 247, 94, 0.2);
-  border: 1px solid rgba(143, 247, 94, 0.5);
-  border-radius: 3px;
+padding: 1em;
+margin-bottom: 1.25em;
+background:rgba(143, 247, 94, 0.2);
+border: 1px solid rgba(143, 247, 94, .5);
+border-radius: 3px;
+
 }
 
 .success ul {
-  list-style-position: inside;
-  margin-top: 0.5em;
+list-style-position: inside;
+margin-top: .5em;
 }
 
 th {
-  width: 180px;
-  height: 40px;
-  background: aliceblue;
-  color: darkslateblue;
+width: 180px;
+height: 40px;
+background: aliceblue;
+color: darkslateblue;
 }
 
 tr {
-  height: 30px;
+height: 30px;
 }
 
 td {
   padding: 7px;
 }
 
+
 .details-entered li {
-  padding: 5px;
-  font-weight: bold;
+padding: 5px;
+font-weight: bold;
 }
 
 .details-entered p {
-  font-weight: normal;
-  font-style: italic;
+font-weight: normal;
+font-style: italic;
 }
 
 .details-entered {
-  border-bottom: 1px solid #dcdcdc;
-  padding-bottom: 25px;
-  margin-bottom: 30px;
-  list-style: none;
+border-bottom: 1px solid #dcdcdc;
+padding-bottom: 25px;
+margin-bottom: 30px;
+list-style: none;
 }
 
 h3 {
-  padding: 10px 0;
+padding: 10px 0;
 }
 
 a {
-  text-decoration: none;
+text-decoration: none;
 }
