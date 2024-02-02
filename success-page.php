@@ -67,6 +67,7 @@ $currentFormData = isset($_SESSION['data']) ? $_SESSION['data'] : [];
     // Clear the session data after displaying it
     unset($_SESSION['data']);
     ?>
+    
   </div>
 </body>
 

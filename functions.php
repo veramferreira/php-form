@@ -26,7 +26,6 @@ function displayCsvData($csvFile) {
 
         echo "</table>";
 
-        // Close file
         fclose($fileHandle);
     
     } else {

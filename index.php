@@ -1,6 +1,7 @@
 <?php
 
-session_start(); //initialise a new session
+//initialise a new session
+session_start(); 
 
 include 'functions.php';
 

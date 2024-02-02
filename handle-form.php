@@ -2,37 +2,32 @@
 
 session_start();
 
-$name="";
-$email="";
-$phoneNumber="";
-$dateOfBirth="";
-$gender="";
-$country="";
-$message="";
+$name = "";
+$email = "";
+$phoneNumber = "";
+$dateOfBirth = "";
+$gender = "";
+$country = "";
+$message = "";
 
 $data = [];
-$errors=[];
+$errors = [];
 
 //Validating the form data
 //Name - should not be empty and should only have letters and spaces
-
-if(!empty($_POST['name'])) {
-  
+if (!empty($_POST['name'])) {
   $name = $_POST['name'];
-  
-  if(ctype_alpha(str_replace(" ", "", $name)) === false) {
+  if (ctype_alpha(str_replace(" ", "", $name)) === false) {
     $errors['name'] = "Name should only contain letters and spaces";
   }
-  
 } else {
   $errors['name'] = "Name is a required field";
 }
 
 //Email - should be a valid email format
-
-if(!empty($_POST['email'])) {
+if (!empty($_POST['email'])) {
   $email = $_POST['email'];
-  if(filter_var($email, FILTER_VALIDATE_EMAIL) !== $email) {
+  if (filter_var($email, FILTER_VALIDATE_EMAIL) !== $email) {
     $errors['email'] = "Email is not valid";
   }
 } else {
@@ -40,107 +35,77 @@ if(!empty($_POST['email'])) {
 }
 
 //Phone number - should be a valid UK phone number format
-
-if(!empty($_POST['phoneNumber'])) {
+if (!empty($_POST['phoneNumber'])) {
   $phoneNumber = $_POST['phoneNumber'];
-  if(!preg_match("/^(?:\+44|0)\\d{10}$/", $phoneNumber)) {
+  if (!preg_match("/^(?:\+44|0)\\d{10}$/", $phoneNumber)) {
     $errors['phoneNumber'] = "Phone number should be a valid UK number";
   }
 }
 
 //Date of birth - should be a valid date format
-
-if(!empty($_POST['dateOfBirth'])) {
+if (!empty($_POST['dateOfBirth'])) {
   $dateOfBirth = $_POST['dateOfBirth'];
-} 
+}
 
 //Gender - at least one option should be selected
-
-if(!empty($_POST['gender'])) {
+if (!empty($_POST['gender'])) {
   $gender = $_POST['gender'];
 } else {
   $errors['gender'] = "Gender is a required field";
 }
 
 //Country - should not be empty
-
-if(!empty($_POST['country'])) {
-
+if (!empty($_POST['country'])) {
   $country = $_POST['country'];
-  $allowedCountries = ["Armenia", "Portugal", "Ukraine","United Kingdom", "United States of America"];
-
-  if(!in_array($country, $allowedCountries)) {
+  $allowedCountries = ["Armenia", "Portugal", "Ukraine", "United Kingdom", "United States of America"];
+  if (!in_array($country, $allowedCountries)) {
     $errors['country'] = "Country is not allowed";
   }
-  
-}else {
+} else {
   $errors['country'] = "You must select a country from the list";
 }
 
-//Mesage - no validation 
-
-if(!empty($_POST['message'])) {
+//Message - no validation 
+if (!empty($_POST['message'])) {
   $message = $_POST['message'];
 }
 
 if ($errors) {
-
   $_SESSION['status'] = 'error';
   $_SESSION['errors'] = $errors;
-  $_SESSION['data'] = $_POST; // Save the submitted data to repopulate the form
-    
+  
+  // Save the submitted data to repopulate the form
+  $_SESSION['data'] = $_POST; 
+
   header('Location: index.php?result=validation_error');
   exit();
-    
-  }else {
-    
-    $data = [
-      "name" => $name,
-      "email" => $email,
-      "phoneNumber" => $phoneNumber,
-      "dateOfBirth" => $dateOfBirth,
-      "gender" => $gender,
-      "country" => $country,
-      "message" => $message
-    ];
 
-    // Check if email or phone number already exists in the csv file
-    $csvFileData = 'form_data.csv';
+} else {
+  $data = [
+    "name" => $name,
+    "email" => $email,
+    "phoneNumber" => $phoneNumber,
+    "dateOfBirth" => $dateOfBirth,
+    "gender" => $gender,
+    "country" => $country,
+    "message" => $message
+  ];
 
-    if (file_exists($csvFileData)) {
-        $fileHandle = fopen($csvFileData, 'r');
+  // Add data to csv file
+  $csvFileData = 'form_data.csv';
+  $fileHandle = fopen($csvFileData, 'a');
+  fputcsv($fileHandle, $data);
+  fclose($fileHandle);
 
-        while (($existingData = fgetcsv($fileHandle)) !== false) {
-            if ($existingData[1] === $data['email'] || $existingData[2] === $data['phoneNumber']) {
-                fclose($fileHandle);
-              
-                // If email or phone number already exists then:
-                $_SESSION['status'] = 'error';
-                $_SESSION['errors'] = ['Email or phone number already exists.'];
-                header('Location: index.php?result=validation_error');
-                exit();
-            }
-        }
 
-        fclose($fileHandle);
-    }
+  // Set session status and data
+  $_SESSION['status'] = 'success';
 
-    // Add data to csv file
-    $fileHandle = fopen($csvFileData, 'a');
+   // Save the submitted data for display on success page
+  $_SESSION['data'] = $_POST;
 
-    fputcsv($fileHandle, $data);
+  // Redirect to success page
+  header('Location: success-page.php');
+  exit();
+}
 
-    // Close the file handle
-    fclose($fileHandle);
-
-    // Set session status and data
-    $_SESSION['status'] = 'success';
-    // $_SESSION['data'] = $data;
-    $_SESSION['data'] = $_POST; // Save the submitted data for display on success page
-
-    // Redirect to success page
-    header('Location: success-page.php');
-    exit();
-  }
-
-?>
