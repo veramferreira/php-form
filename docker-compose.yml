@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8081:80"
+    volumes:
+      - ./index.php:/var/www/html/index.php
+      - ./handle-form.php:/var/www/html/handle-form.php
+      - ./success-page.php:/var/www/html/success-page.php
+      - ./functions.php:/var/www/html/functions.php
+      - ./style.css:/var/www/html/style.css
+      - ./form_data.csv:/var/www/html/form_data.csv
