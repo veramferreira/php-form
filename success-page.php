@@ -1,6 +1,4 @@
 <?php
-require_once "config.php";
-
 session_start();
 include 'functions.php';
 
@@ -57,10 +55,10 @@ $currentFormData = isset($_SESSION['data']) ? $_SESSION['data'] : [];
     </ul><br />
 
     <!-- Read data from csv file -->
-    <?php
+    <!-- <?php
     $csvFileData = 'form_data.csv';
     displayCsvData($csvFileData);
-    ?>
+    ?> -->
 
     <a href="index.php"><button class="new-form-btn">Fill in a new form</button></a>
 

@@ -1,6 +1,4 @@
 <?php
-require_once "./config.php";
-
 //initialise a new session
 session_start(); 
 

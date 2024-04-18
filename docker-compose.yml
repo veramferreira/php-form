@@ -11,7 +11,7 @@ services:
       - ./functions.php:/var/www/html/functions.php
       - ./style.css:/var/www/html/style.css
       - ./form_data.csv:/var/www/html/form_data.csv
-      - ./config.php:/var/www/html/config.php
+      - ./Connection.class.php:/var/www/html/Connection.class.php
     depends_on:
       - db
   db:

@@ -1,6 +1,4 @@
 <?php
-require_once "./config.php";
-
 // /**Function to escape malicious code from being entred as text (html tags, JS, etc)
 function escapeStr($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
