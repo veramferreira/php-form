@@ -10,6 +10,7 @@ COPY success-page.php /var/www/html/
 COPY functions.php /var/www/html/
 COPY styles.css /var/www/html/
 COPY form_data.csv /var/www/html/
+COPY config.php /var/www/html/
 
 # Install additional PHP extensions and dependencies
 RUN docker-php-ext-install mysqli && \

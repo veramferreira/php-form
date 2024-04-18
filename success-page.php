@@ -1,6 +1,7 @@
 <?php
-session_start();
+require_once "config.php";
 
+session_start();
 include 'functions.php';
 
 // Display details from the current form submission

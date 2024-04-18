@@ -1,8 +1,10 @@
 <?php
+require_once "./config.php";
 
 //initialise a new session
 session_start(); 
 
+// print_r($_GET);
 include 'functions.php';
 
 ?><!DOCTYPE html>
